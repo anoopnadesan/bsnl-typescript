@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="/">
+    <title>Real-time event list update</title>
+    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="assets/app.css">
+</head>
+<body ng-app="app" ng-cloak>
+
+<div class="container">
+    <nav id="myNavbar" class="navbar navbar-default navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="javascript:void(0);">Tantalus</a>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="nav navbar-nav" ng-show="userdata">
+                <li ng-class="((currentMenuItem=='events') ? 'active' : '')"><a href="/events">Events List</a></li>
+                <li ng-class="((currentMenuItem=='directories') ? 'active' : '')"><a href="/directories">Directories</a></li>
+                <!--<li ng-class="((currentMenuItem=='lazy') ? 'active' : '')"><a href="/lazy">Lazy Load</a></li>-->
+                <li><a href="/login">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+</div>
+
+    <div class="jumbotron">
+        <p>{{ jumbotron }}</p>
+    </div>
+
+    <div ng-hide="dataLoaded" class="preloader"></div>
+    <ng-view ng-show="dataLoaded"></ng-view>
+
+    <div class="navbar navbar-fixed-bottom navbar-me">
+        <div class="container">
+            <p class="navbar-text">©Copyright 2015</p>
+        </div>
+    </div>
+</div>
+
+<script src="http://localhost:3001/socket.io/socket.io.js"></script>
+<script src="lib/jquery.min.js"></script>
+<script src="lib/jquery-ui.min.js"></script>
+<script src="lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="lib/angular/angular.js"></script>
+<script src="lib/angular/angular-route.min.js"></script>
+<script src="lib/angular/angular-cookies.js"></script>
+
+<script src="app/modules/app.js"></script>
+
+<script src="app/modules/login/login.js"></script>
+<script src="app/modules/login/controllers/loginController.js"></script>
+<script src="app/modules/login/services/loginService.js"></script>
+
+<script src="app/modules/events/events.js"></script>
+<script src="app/modules/events/controllers/eventsController.js"></script>
+
+<script src="app/modules/directory/directory.js"></script>
+<script src="app/modules/directory/controllers/directoryController.js"></script>
+
+<script src="app/modules/common/common.js"></script>
+<script src="app/modules/common/services/socket.ioService.js"></script>
+</body>
+</html>

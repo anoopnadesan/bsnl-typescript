@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="alert alert-info">
+                Username: demo<br />
+                Password: demo
+            </div>
+            <div ng-show="vm.error" class="alert alert-danger">{{vm.error}}</div>
+    
+            <form name="form" ng-submit="vm.login()" role="form">
+    
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <i class="fa fa-key"></i>
+                        <input type="text" name="username" id="username" class="form-control" ng-model="vm.username" required />
+                        <span ng-show="form.username.$dirty && form.username.$error.required" class="help-block">Username is required</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <i class="fa fa-lock"></i>
+                        <input type="password" name="password" id="password" class="form-control" ng-model="vm.password" required />
+                        <span ng-show="form.password.$dirty && form.password.$error.required" class="help-block">Password is required</span>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" ng-disabled="form.$invalid || vm.signingOn" class="btn btn-danger">Login</button>
+                        <span class="glyphicon glyphicon-refresh glyphicon-refresh-animate login" ng-if="vm.signingOn"></span>
+                    </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,66 @@
+/* app css stylesheet */
+
+.jumbotron {
+    padding: 48px 0 0!important;
+    margin-bottom: 10px !important;
+    text-align: center;
+}
+.jumbotron p {
+    padding: 10px 0 !important;
+}
+/*[ng:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak {
+   display: none !important;
+}*/
+a:hover,a:active,a:focus {
+    outline: none;
+}
+.navbar-me {
+    color: #FFFFFF;
+    background-color: #3c3c3c;
+}
+/*.glyphicon-refresh-animate {
+    -animation: spin .7s infinite linear;
+    -ms-animation: spin .7s infinite linear;
+    -webkit-animation: spinw .7s infinite linear;
+    -moz-animation: spinm .7s infinite linear;
+}
+.glyphicon.login {
+    padding: 0 10px;
+}
+@keyframes spin {
+    from {
+        transform: scale(1) rotate(0deg);
+    }
+    to {
+        transform: scale(1) rotate(360deg);
+    }
+}
+@-webkit-keyframes spinw {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(360deg);
+    }
+}
+@-moz-keyframes spinm {
+    from {
+        -moz-transform: rotate(0deg);
+    }
+    to {
+        -moz-transform: rotate(360deg);
+    }
+}*/
+.preloader {
+    padding: 150px;
+    background: url('preloader.gif') no-repeat 50% 50% transparent;
+}
+
+div.row.borders {
+  border: 0px 1px 1px 1px solid;
+}
+
+div.row.heading {
+    font-weight: bold;
+    text-decoration: underline;
+}

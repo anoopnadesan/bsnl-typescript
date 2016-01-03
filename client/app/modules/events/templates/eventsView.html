@@ -1,0 +1,14 @@
+<div class="container-fluid" ng-show="dataLoaded">
+  <div class="row heading">
+    <div class="col-xs-6 col-sm-3" style="">Event Id</div>
+    <div class="col-xs-6 col-sm-3" style="">Event Name</div>
+    <div class="col-xs-6 col-sm-3" style="">Location</div>
+    <div class="col-xs-6 col-sm-3" style="">Organizer</div>
+  </div>
+  <div class="row borders" ng-repeat="event in vm.events">
+    <div class="col-xs-6 col-sm-3" style="">{{ event.eventId }}</div>
+    <div class="col-xs-6 col-sm-3" style="">{{ event.name }}</div>
+    <div class="col-xs-6 col-sm-3" style="">{{ event.location }}</div>
+    <div class="col-xs-6 col-sm-3" style="">{{ event.organizer }}</div>
+  </div>
+</div>

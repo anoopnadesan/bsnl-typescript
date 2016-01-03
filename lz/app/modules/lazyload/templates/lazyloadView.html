@@ -1,0 +1,20 @@
+<div class="container-fluid">
+	<div class="lazy-load-container" style="height:500px;overflow-y:auto;">
+		<div class="list-group-item active">
+			<div class="row">
+				<div class="col-xs-6 col-sm-4">Event Id</div>
+				<div class="col-xs-6 col-sm-4">Subscriber Id</div>
+				<div class="clearfix visible-xs-block"></div>
+				<div class="col-xs-6 col-sm-4">Sample content</div>
+			</div>
+		</div>
+		<div ng-repeat="data in lzscope track by $index" class="list-group-item">
+			<div class="row">
+				<div class="col-xs-6 col-sm-4">{{data.eventId}}</div>
+				<div class="col-xs-6 col-sm-4">{{data.subscriberId}}</div>
+				<div class="clearfix visible-xs-block"></div>
+				<div class="col-xs-6 col-sm-4">{{data.content}}</div>
+			</div>
+		</div>
+	</div>
+</div>
