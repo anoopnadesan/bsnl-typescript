@@ -8,6 +8,7 @@ var app;
                 this.httpService = httpService;
                 this.lzConfig = lzConfig;
             }
+            // Will use php or node api to get limited data
             LazyLoadService.prototype.getData = function () {
                 var result = this.httpService.get(this.lzConfig.jsonDataUrl)
                     .then(function (response) { return response.data; });

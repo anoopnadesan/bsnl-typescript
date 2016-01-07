@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="/">
+    <title>Lazy Loading</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="assets/app.css">
+</head>
+
+<body ng-app="app">
+    <nav class="navbar navbar-inverse">
+        <div class="container">
+            <div class="navbar-header">
+
+                <a class="navbar-brand" href="javascript:void(0);">Lazy Loading</a>
+            </div>
+
+        </div>
+    </nav>
+    <div class="container" ng-controller="LazyLoadController as vm">
+        <lazy-load-list template-url="app/modules/lazyload/templates/lazyloadView.html" lz-pg-next="vm.lazyLoadNext()" lz-pg-prev="vm.lazyLoadPrev()" lz-pg-first="vm.lazyLoadFirst()" lz-pg-last="vm.lazyLoadLast()" lzscope="vm.lzDataCurrValue" pg-first="vm.pgFirst" pg-last="vm.pgLast" pg-curr="vm.pgCurr"></lazy-load-list>
+    </div>
+
+<script src="lib/jquery.min.js"></script>
+<script src="lib/jquery-ui.min.js"></script>
+<script src="lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="lib/angular/angular.js"></script>
+<script src="lib/angular/angular-route.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    
+<script src="app/modules/app.js"></script>
+<script src="app/modules/lazyload/lazyload.js"></script>
+<script src="app/modules/lazyload/controllers/lazyloadController.js"></script>
+<script src="app/modules/lazyload/directives/lazyload.js"></script>
+<script src="app/modules/lazyload/services/lazyloadService.js"></script>
+</body>
+
+</html>

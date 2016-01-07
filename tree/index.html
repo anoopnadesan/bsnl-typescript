@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="/">
+    <title>Tree Menu</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="assets/app.css">
+</head>
+
+<body ng-app="app">
+    <nav class="navbar navbar-inverse">
+        <div class="container">
+            <div class="navbar-header">
+
+                <a class="navbar-brand" href="javascript:void(0);">Tree Menu</a>
+            </div>
+
+        </div>
+    </nav>
+    <div class="container" ng-controller="TreeController as vm">
+        <tree-menu template-url="app/modules/tree/templates/treeView.html" treecollapse="vm.treeCollapse(nodeid)" treescope="vm.treeDataValue"></tree-menu>
+    </div>
+
+<script src="lib/jquery.min.js"></script>
+<script src="lib/jquery-ui.min.js"></script>
+<script src="lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="lib/angular/angular.js"></script>
+<script src="lib/angular/angular-route.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    
+<script src="app/modules/app.js"></script>
+<script src="app/modules/tree/tree.js"></script>
+<script src="app/modules/tree/controllers/treeController.js"></script>
+<script src="app/modules/tree/directives/tree.js"></script>
+<script src="app/modules/tree/services/treeService.js"></script>
+</body>
+
+</html>

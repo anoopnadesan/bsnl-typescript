@@ -1,0 +1,27 @@
+<div class="container-fluid">
+	<div class="lazy-load-container">
+		<div class="list-group-item active">
+			<div class="row">
+				<div class="col-xs-6 col-sm-4">Event Id</div>
+				<div class="col-xs-6 col-sm-4">Subscriber Id</div>
+				<div class="clearfix visible-xs-block"></div>
+				<div class="col-xs-6 col-sm-4">Sample content</div>
+			</div>
+		</div>
+		<div ng-repeat="data in lzscope track by $index" class="list-group-item">
+			<div class="row">
+				<div class="col-xs-6 col-sm-4">{{data.eventId}}</div>
+				<div class="col-xs-6 col-sm-4">{{data.subscriberId}}</div>
+				<div class="clearfix visible-xs-block"></div>
+				<div class="col-xs-6 col-sm-4">{{data.content}}</div>
+			</div>
+		</div>
+	</div>
+    <ul class="pagination pagination-lg pull-right">
+        <li ng-class="pgFirst ? '' : 'disabled'" class="pg-first"><a href="javascript:void(0);">First</a></li>
+        <li ng-class="pgFirst ? '' : 'disabled'" class="pg-prev"><a href="javascript:void(0);"><<</a></li>
+        <li class="pg-curr active"><a href="javascript:void(0);">{{pgCurr}}</a></li>
+        <li ng-class="(pgLast || (pgTotal)) ? '' : 'disabled'" class="pg-next"><a href="javascript:void(0);">>></a></li>
+        <li ng-class="pgLast ? '' : 'disabled'" class="pg-last"><a href="javascript:void(0);">Last</a></li>
+    </ul>
+</div>

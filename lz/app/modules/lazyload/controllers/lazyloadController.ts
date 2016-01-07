@@ -8,14 +8,14 @@ module app.lazyload {
 	}
     
 	export interface IlazyloadScope {
-        lzData: app.lazyload.Ilazyload[];
+        lzData: app.lazyload.Ilazyload[]; // Will implement php or node api to get limited data
         lzDataValue: app.lazyload.Ilazyload[];
         lazyLoad:(digest: boolean) => void;
         lzcount: number;
 	}
     
     class LazyLoadController implements IlazyloadScope {
-        lzData: app.lazyload.Ilazyload[];
+        lzData: app.lazyload.Ilazyload[]; // Will implement php or node api to get limited data
         lzDataValue: app.lazyload.Ilazyload[];
         lzcount: number;
 
@@ -30,6 +30,7 @@ module app.lazyload {
             private $scope: ng.IScope,
             private lzConfig) {
                 this.lzcount = 0;
+                this.lzData = [];
                 this.lzDataValue = [];
                 this.LazyLoadService.getData()
                     .then( (data) => {

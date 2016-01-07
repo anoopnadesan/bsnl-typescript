@@ -10,6 +10,7 @@ var app;
                 this.$scope = $scope;
                 this.lzConfig = lzConfig;
                 this.lzcount = 0;
+                this.lzData = [];
                 this.lzDataValue = [];
                 this.LazyLoadService.getData()
                     .then(function (data) {
