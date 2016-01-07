@@ -16,20 +16,18 @@ module app.tree {
         };
         
         public replace = true;
+        //public transclude = true;
+        //public template = '<ul><li ng-repeat="child in tmpLoad"><a href="javascript:void(0);" ng-click="clickNode(child.id,child.class);" class="node{{child.class}}">{{ child.text }}</a></li></ul>';
         
-        public link = (scope, element:ng.IAugmentedJQuery, attrs:ng.IAttributes):void => {
-            
-            /*element.find('a.treenode').bind("click", function() {
-                console.log('spanyyy');
-                //$(this).parent().children("ul").toggle();
-            });*/
-            element.bind('click', function() {
-                //console.log('spanyyy'+($(element).attr("class")));
-                //$(element).parent().children("ul").toggle();
-            });
-            scope.clickNode = function(nodeid) {
-                $('.node'+nodeid).parent().children("ul").toggle();
+        public link = (scope, element:ng.IAugmentedJQuery, attrs:ng.IAttributes/*, transclude:ng.ITranscludeFunction*/):void => {
+            scope.clickNode = function(nodeid,nodeclass) {
+                $('.node'+nodeclass).parent().children("ul").toggle();
+                var template = '<ul><li ng-repeat="child in tmpLoad"><a href="javascript:void(0);" ng-click="clickNode(child.id,child.class);" class="node{{child.class}}">{{ child.text }}</a></li></ul>';
                 scope.treecollapse({nodeid:nodeid});
+                //$compile(element.contents())(scope);
+                /*transclude(function(clone) {
+                    $(clone).insertAfter('.node'+nodeclass);
+                });*/
             }
         };
         

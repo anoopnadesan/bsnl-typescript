@@ -16,18 +16,17 @@ var app;
                     return attrs.templateUrl;
                 };
                 this.replace = true;
-                this.link = function (scope, element, attrs) {
-                    /*element.find('a.treenode').bind("click", function() {
-                        console.log('spanyyy');
-                        //$(this).parent().children("ul").toggle();
-                    });*/
-                    element.bind('click', function () {
-                        //console.log('spanyyy'+($(element).attr("class")));
-                        //$(element).parent().children("ul").toggle();
-                    });
-                    scope.clickNode = function (nodeid) {
-                        $('.node' + nodeid).parent().children("ul").toggle();
+                //public transclude = true;
+                //public template = '<ul><li ng-repeat="child in tmpLoad"><a href="javascript:void(0);" ng-click="clickNode(child.id,child.class);" class="node{{child.class}}">{{ child.text }}</a></li></ul>';
+                this.link = function (scope, element, attrs /*, transclude:ng.ITranscludeFunction*/) {
+                    scope.clickNode = function (nodeid, nodeclass) {
+                        $('.node' + nodeclass).parent().children("ul").toggle();
+                        var template = '<ul><li ng-repeat="child in tmpLoad"><a href="javascript:void(0);" ng-click="clickNode(child.id,child.class);" class="node{{child.class}}">{{ child.text }}</a></li></ul>';
                         scope.treecollapse({ nodeid: nodeid });
+                        //$compile(element.contents())(scope);
+                        /*transclude(function(clone) {
+                            $(clone).insertAfter('.node'+nodeclass);
+                        });*/
                     };
                 };
             }
