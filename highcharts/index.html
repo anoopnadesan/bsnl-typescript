@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+    <link href="lib/bootstrap-combined.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div ng-app="app">
+    <div ng-controller="HighchartController">
+        <div class="row">
+            <div class="span9">
+                <div class="row">
+                    <highchart id="chart" config="chartConfig" class="span9" ></highchart>
+                </div>
+            </div>
+            <div class="span4">
+                <div class="row-fluid" ng-repeat="ser in chartSeries">
+                    <div class="span12 well">
+                        <div class="row-fluid">Chart type
+                            <select ng-model="ser.type" ng-options="t.id as t.title for t in chartTypes"></select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script src="lib/jquery.min.js"></script>
+    <script src="lib/angular.min.js"></script>
+    <script src="lib/highstock.js"></script>
+
+<script src="app/modules/app.js"></script>
+<script src="app/modules/highchart/highchart.js"></script>
+<script src="app/modules/highchart/controllers/highchartController.js"></script>
+<script src="app/modules/highchart/directives/highchart.js"></script>
+
+</body>
+</html>
