@@ -3,7 +3,7 @@
     angular
         .module('app.tree', [])
         .constant("lzConfig", {
-        "jsonDataUrl": "data/data.json",
+        "api": "http://localhost/json/treedata.php",
         "recordsLimit": 1
     });
 })();

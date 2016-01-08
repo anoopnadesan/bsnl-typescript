@@ -23,7 +23,7 @@
         </div>
     </nav>
     <div class="container" ng-controller="TreeController as vm">
-        <tree-menu template-url="app/modules/tree/templates/treeView.html" treecollapse="vm.treeCollapse(nodeid,nodeclass)" treescope="vm.treeDataValue"></tree-menu>
+        <tree-menu template-url="app/modules/tree/templates/treeView.html" load-menu-items="vm.loadMenuItems(nodeid)" root-data="vm.rootData" node-data="vm.nodeData"></tree-menu>
     </div>
 
 <script src="lib/jquery.min.js"></script>

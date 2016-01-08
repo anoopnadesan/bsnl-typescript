@@ -13,8 +13,8 @@ module app.tree
             private lzConfig
         ) {}
 
-        getData(): ng.IPromise< any > {
-            var result: ng.IPromise< any > = this.httpService.get(this.lzConfig.jsonDataUrl)
+        getData(node): ng.IPromise< any > {
+            var result: ng.IPromise< any > = this.httpService.get(this.lzConfig.api + (node=='' ? '' : '?node='+node))
             .then( ( response: any ): ng.IPromise< any > => response.data );
             return result;
         }

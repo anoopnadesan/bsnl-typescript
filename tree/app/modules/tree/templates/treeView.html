@@ -1,12 +1,7 @@
 <div class="container-fluid">
     <ul class="treelist">
-        <li ng-repeat="node in treescope track by $index">
-            <a href="javascript:void(0);" ng-click="clickNode(node.id,node.class);" class="node{{node.class}}">{{ node.text }}</a>
-            <ul>
-                <li ng-repeat="child in node.child">
-                    <a href="javascript:void(0);" ng-click="clickNode(child.id,child.class);" class="node{{child.class}}">{{ child.text }}</a>
-                </li>
-            </ul>
+        <li ng-repeat="node in rootData track by $index">
+            <a href="javascript:void(0);" ng-click="clickNode(node.id);" class="node{{node.id}}">{{ node.item }}</a>
         </li>
     </ul>
 </div>

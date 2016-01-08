@@ -8,8 +8,8 @@ var app;
                 this.httpService = httpService;
                 this.lzConfig = lzConfig;
             }
-            treeService.prototype.getData = function () {
-                var result = this.httpService.get(this.lzConfig.jsonDataUrl)
+            treeService.prototype.getData = function (node) {
+                var result = this.httpService.get(this.lzConfig.api + (node == '' ? '' : '?node=' + node))
                     .then(function (response) { return response.data; });
                 return result;
             };
