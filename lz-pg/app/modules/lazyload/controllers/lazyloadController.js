@@ -22,7 +22,7 @@ var app;
                 this.LazyLoadService.getData()
                     .then(function (data) {
                     _this.lzData = data;
-                    _this.pgTotal = Math.floor(data.length / _this.lzConfig.recordsLimit);
+                    _this.pgTotal = Math.floor(data.length / _this.lzConfig.recordsLimit) + ((data.length % _this.lzConfig.recordsLimit > 0) ? 1 : 0);
                     if (_this.pgTotal > 1)
                         _this.pgLast = true;
                     _this.lazyLoad();
@@ -37,7 +37,6 @@ var app;
                     if (this.lzDataValue[i])
                         this.lzDataCurrValue.push(this.lzDataValue[i]);
                 this.lzcount += this.lzConfig.recordsLimit;
-                console.log("Total records loaded: " + this.lzcount);
             };
             LazyLoadController.prototype.lazyLoadFirst = function () {
                 this.lzDataCurrValue = [];
@@ -54,9 +53,6 @@ var app;
                 for (var i = ((this.pgTotal - 1) * this.lzConfig.recordsLimit); i < (this.lzConfig.recordsLimit + ((this.pgTotal - 1) * this.lzConfig.recordsLimit)); i++)
                     if (this.lzData[i])
                         this.lzDataValue[i] = this.lzData[i];
-                //console.log((this.pgTotal*this.lzConfig.recordsLimit));
-                //console.log(this.lzDataValue[this.pgTotal*this.lzConfig.recordsLimit]);
-                //console.log(this.lzData[this.pgTotal*this.lzConfig.recordsLimit]);
                 this.lzDataCurrValue = [];
                 for (var i = ((this.pgTotal - 1) * this.lzConfig.recordsLimit); i < (this.lzConfig.recordsLimit + ((this.pgTotal - 1) * this.lzConfig.recordsLimit)); i++)
                     if (this.lzDataValue[i])
@@ -95,7 +91,7 @@ var app;
                 if (!this.lzDataValue[(this.pgCurr * this.lzConfig.recordsLimit)]) {
                     for (var i = (this.pgCurr * this.lzConfig.recordsLimit); i < ((this.pgCurr * this.lzConfig.recordsLimit) + this.lzConfig.recordsLimit); i++)
                         if (this.lzData[i])
-                            this.lzDataValue.push(this.lzData[i]);
+                            this.lzDataValue[i] = this.lzData[i];
                 }
                 this.lzDataCurrValue = [];
                 for (var i = 0; i < this.lzConfig.recordsLimit; i++)

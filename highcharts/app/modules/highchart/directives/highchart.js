@@ -5,46 +5,23 @@ var app;
         'use strict';
         var highchart = (function () {
             function highchart() {
-                this.restrict = 'EAC';
+                this.restrict = 'E';
                 this.replace = true;
-                this.template = '<div></div>';
                 this.scope = {
-                    config: '='
+                    chartType: '=',
+                    ngChartLoad: '&',
+                    chartOptions: '='
                 };
-                this.link = function (scope, element, attrs) {
-                    // We keep some chart-specific variables here as a closure
-                    // instead of storing them on 'scope'.
-                    var processSeries = function (series) {
-                        var ids = [];
-                        if (series) {
-                            var setIds = this.ensureIds(series);
-                            //Find series to load or update
-                            angular.forEach(series, function (s) {
-                                ids.push(s.id);
-                                var chartSeries = chart.get(s.id);
-                                if (chartSeries) {
-                                    chartSeries.update(angular.copy(s), false);
-                                } else {
-                                    chart.addSeries(angular.copy(s), false);
-                                }
-                            });
-                        }
-                        return true;
-                    };
-                    // chart is maintained by initChart
-                    var chart = false;
-                    var initChart = function () {
-                        var config = scope.config || {};
-                        var chartOptions = config.options;
-                        chartOptions.chart.renderTo = element[0];
-                        var chartType = 'Chart';
-                        chart = new window.Highcharts[chartType](config.options);
-                    };
-                    initChart();
-                    scope.$watch('config.series', function (newSeries, oldSeries) {
-                        var needsRedraw = processSeries(newSeries);
-                        if(needsRedraw) chart.redraw();
-                    }, true);
+                this.templateUrl = function (element, attrs) {
+                    return attrs.templateUrl;
+                };
+                this.link = function (scope, element, attrs, ctrl) {
+                    scope.chartOptions.chart.renderTo = 'batsmen';
+                    scope.chartOptions.chart.type = scope.chartType;
+                    var ngChart = new Highcharts.Chart(scope.chartOptions);
+                    element.find('.myNgTsdchart').bind("click", function () {
+                        scope.ngChartLoad();
+                    });
                 };
             }
             highchart.factory = function () {

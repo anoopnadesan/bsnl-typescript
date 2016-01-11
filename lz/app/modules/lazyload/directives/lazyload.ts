@@ -17,6 +17,7 @@ module app.lazyload {
         
         public link = (scope, element:ng.IAugmentedJQuery, attrs:ng.IAttributes):void => {
             element.find('.lazy-load-container').bind("scroll", function() {
+                // 
                 if ($(this)[0].scrollHeight - $(this).scrollTop() <= ($(this).height() + ($(this).height() * .05))) {
                     scope.lazyLoad(true);
                 };

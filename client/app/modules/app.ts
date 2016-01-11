@@ -20,17 +20,19 @@
         .run(run);
 
     config.$inject = [
-        '$locationProvider'
+        '$locationProvider',
+        '$logProviderService'
     ];
     
     function config(
-        $locationProvider: ng.ILocationProvider): void {
+        $locationProvider: ng.ILocationProvider,
+        $logProviderService: app.common.SocketService): void {
             // use the HTML5 History API
             $locationProvider.html5Mode(true);
     }
     
     run.$inject = ['app.login.LoginService'];
-    
+
     function run(LoginService: app.login.LoginService): void {            
         // keep user logged in after page refresh
         LoginService.authenticate();

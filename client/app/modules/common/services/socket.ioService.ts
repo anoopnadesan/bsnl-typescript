@@ -21,9 +21,9 @@ module app.common
 
         getSocketData(listener,callback:Function): void {
             this.$timeout((): void => {
-                /*socket.on(listener, function(evt) {
+                socket.on(listener, function(evt) {
                     callback(JSON.parse(evt));
-                });*/
+                });
             }, 1000);
         }
     }

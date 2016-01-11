@@ -1,30 +1,17 @@
 module app.highchart {
     'use strict';
-
-    export interface IChartTypes {
-		id: string;
-		title: string;
-	}
-
-    export interface IChartSeries {
-		name: string;
-		data: any;
-        type: string;
-	}
     
 	export interface IChartScope {
-        chartTypes: app.highchart.IChartTypes[];
-        chartSeries: app.highchart.IChartSeries[];
-        chartConfig : any;
-        seriesId: number;
-        ensureIds:(series) => boolean;
+        chartOptions : any;
+        ngChart: any;
+        chartType: string;
+        ngChartLoad:() => void;
 	}
     
     class HighchartController implements IChartScope {
-        chartTypes: app.highchart.IChartTypes[];
-        chartSeries: app.highchart.IChartSeries[];
-        chartConfig : any;
-        seriesId: number;
+        chartOptions : any;
+        ngChart: any;
+        chartType: string;
 
         static $inject = [
             '$scope'
@@ -32,55 +19,87 @@ module app.highchart {
 		
         constructor(
             private $scope: ng.IScope) {
-                this.chartTypes = [
-                    {"id": "line", "title": "Line"},
-                    {"id": "bar", "title": "Bar"},
-                    {"id": "pie", "title": "Pie"}
-                ];
-                this.chartSeries = [
-                    {"name": "Player", "data": [80,70, 62,73, 84], type: "column"}
-                ];
-                this.chartConfig = {
-                    options: {
-                        chart: {
-                            type: 'line'
-                        },
-                        plotOptions: {
-                            series: {
-                            stacking: ''
-                            }
-                        },
-                        yAxis: {
+                this.chartType = "column";
+                
+                // Create the chart
+                this.chartOptions = {
+                    chart: {
+                        renderTo : 'batsmen',
+                        plotBorderWidth: 0
+                    },
+
+                    title: {
+                        text: 'Runs scored in the period 1999-2012',
+                    },
+                    subtitle: {
+                            text: 'Batting legends Sachin, Kallis and Lara'
+                    },
+                    xAxis: {
+                            type: 'category',
+                    },
+                    yAxis: {
                             title: {
-                                text: "Average (%)"
+                                margin: 10,
+                                text: 'Runs'
+                            },
+                            labels: {
+                                formatter: function () {
+                                    return Highcharts.numberFormat(this.value,0);
+                                }
+                            }
+                    },
+                    legend: {
+                        enabled: true,
+                    },
+                    plotOptions: {
+                        series: {
+                            pointPadding: 0.2,
+                            borderWidth: 0,
+                            dataLabels: {
+                                enabled: true
                             }
                         },
-                        title: {
-                            text: 'Chart with angular-Typescript'
-                        },
-                        credits: {
-                            title: "Tantalus"
+                        pie: {
+                            plotBorderWidth: 0,
+                            allowPointSelect: true,
+                            cursor: 'pointer',
+                            size: '100%',
+                            dataLabels: {
+                                enabled: true,
+                                format: '{point.name}: <b>{point.y}</b>'
+                            }
                         }
                     },
-                    series: this.chartSeries,
+                    series: [{
+                            name: 'Players',
+                            colorByPoint: true,
+                            data: [{
+                                name: 'Sachin',
+                                y: 18000
+                            }, {
+                                name: 'Kallis',
+                                y: 13200
+                            }, {
+                                name: 'Lara',
+                                y: 10700
+                            }, {
+                                name: 'Ponting',
+                                y: 11800
+                            }]
+                        }],
                     credits: {
-                        enabled: true
+                        enabled: false
                     },
-                    loading: false,
-                    size: {}
+                    drilldown: {
+                        series: []
+                    }
                 };
         }
         
-        ensureIds(series): boolean {
-            var changed = false;
-            angular.forEach(series, function(s) {
-                if (!angular.isDefined(s.id)) {
-                    s.id = 'series-' + this.seriesId++;
-                    changed = true;
-                }
-            });
-            return changed;
-        };
+        ngChartLoad() : void {
+            this.chartOptions.chart.type = this.chartType;
+            var ngChart = new Highcharts.Chart(this.chartOptions);
+        }
 	}
 
     angular

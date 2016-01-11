@@ -2,10 +2,7 @@
     'use strict';
     angular
         .module('app.common', [])
-        .config(commonConfig)/*
-        .directive('app.common.CommonDirective',
-            app.common.CommonDirective.Factory()
-            )*/;
+        .config(commonConfig);
 
     commonConfig.$inject = [
         '$routeProvider'

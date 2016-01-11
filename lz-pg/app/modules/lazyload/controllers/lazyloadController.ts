@@ -16,7 +16,7 @@ module app.lazyload {
         lazyLoadPrev:() => void;
         lzcount: number;
         
-        /* Pagination params */
+        /* Pagination vars */
         pgFirst:boolean;
         pgLast:boolean;
         pgPrev:number;
@@ -57,7 +57,7 @@ module app.lazyload {
                 this.LazyLoadService.getData()
                     .then( (data) => {
                         this.lzData = data;
-                        this.pgTotal = Math.floor(data.length/this.lzConfig.recordsLimit);
+                        this.pgTotal = Math.floor(data.length/this.lzConfig.recordsLimit) + ((data.length%this.lzConfig.recordsLimit > 0) ? 1 : 0);
                         if(this.pgTotal>1) this.pgLast = true;
                         this.lazyLoad();
                     } );
@@ -74,11 +74,9 @@ module app.lazyload {
                     this.lzDataCurrValue.push(this.lzDataValue[i]);
 
             this.lzcount += this.lzConfig.recordsLimit;
-            console.log("Total records loaded: "+this.lzcount);
         }
     
         lazyLoadFirst(): void {
-            
             this.lzDataCurrValue = [];
             for (var i = 0; i < this.lzConfig.recordsLimit; i++)
                 this.lzDataCurrValue.push(this.lzDataValue[i]);
@@ -96,22 +94,16 @@ module app.lazyload {
             for (var i = ((this.pgTotal-1)*this.lzConfig.recordsLimit); i < (this.lzConfig.recordsLimit + ((this.pgTotal-1)*this.lzConfig.recordsLimit)); i++)
                 if(this.lzData[i])
                     this.lzDataValue[i] = this.lzData[i];
-                    
-//console.log((this.pgTotal*this.lzConfig.recordsLimit));
-//console.log(this.lzDataValue[this.pgTotal*this.lzConfig.recordsLimit]);
-//console.log(this.lzData[this.pgTotal*this.lzConfig.recordsLimit]);
 
             this.lzDataCurrValue = [];
             for (var i = ((this.pgTotal-1)*this.lzConfig.recordsLimit); i < (this.lzConfig.recordsLimit + ((this.pgTotal-1)*this.lzConfig.recordsLimit)); i++)
                 if(this.lzDataValue[i])
                     this.lzDataCurrValue.push(this.lzDataValue[i]);
-            
             this.pgFirst = true;
             this.pgPrev = this.pgTotal-1;
             this.pgCurr = this.pgTotal;
             this.pgNext = this.pgTotal+1;
             this.pgLast = false;
-            
             this.$scope.$digest();
         }
     
@@ -126,9 +118,6 @@ module app.lazyload {
                 for (var i = 0; i < this.lzConfig.recordsLimit; i++)
                     if(this.lzDataValue[i+((this.pgCurr-1)*this.lzConfig.recordsLimit)])
                         this.lzDataCurrValue.push(this.lzDataValue[i+((this.pgCurr-1)*this.lzConfig.recordsLimit)]);
-                        
-                //console.log(this.pgCurr);
-                //console.log(this.lzData[(this.pgCurr-1)*this.lzConfig.recordsLimit]);
             }
             else
             {
@@ -148,11 +137,10 @@ module app.lazyload {
         }
     
         lazyLoadNext(): void {
-
             if(!this.lzDataValue[(this.pgCurr*this.lzConfig.recordsLimit)]) {
                 for (var i = (this.pgCurr*this.lzConfig.recordsLimit); i < ((this.pgCurr*this.lzConfig.recordsLimit)+this.lzConfig.recordsLimit); i++)
                     if(this.lzData[i])
-                        this.lzDataValue.push(this.lzData[i]);
+                        this.lzDataValue[i] = this.lzData[i];
             }
             
             this.lzDataCurrValue = [];

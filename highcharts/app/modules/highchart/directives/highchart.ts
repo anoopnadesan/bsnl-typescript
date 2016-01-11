@@ -1,60 +1,28 @@
 module app.highchart {
     'use strict';
     
-    //chart = new Highcharts[chartType](config.options);
-    
     export class highchart implements ng.IDirective {
         
-        public restrict = 'EAC';
+        public restrict = 'E';
         public replace = true;
-        public template = '<div></div>';
         public scope = {
-            config: '='
+            chartType: '=',
+            ngChartLoad: '&',
+            chartOptions: '='
         };
         
-        link = function (scope, element, attrs) {
-            // We keep some chart-specific variables here as a closure
-            // instead of storing them on 'scope'.
-
-            var processSeries = function(series) {
-                var ids = [];
-
-                if(series) {
-                    var setIds = this.ensureIds(series);
-
-                    //Find series to load or update
-                    angular.forEach(series, function(s) {
-                        ids.push(s.id);
-                        /*var chartSeries = chart.get(s.id);
-                        if (chartSeries) {
-                            chartSeries.update(angular.copy(s), false);
-                        } else {
-                            chart.addSeries(angular.copy(s), false);
-                        }*/
-                    });
-                }
-                return true;
-            };
-
-            // chart is maintained by initChart
-            var chart = false;
-            var initChart = function() {
-                var config = scope.config || {};
-
-                var chartOptions = config.options;		  
-                chartOptions.chart.renderTo = element[0];
-
-                var chartType = 'Chart';
-
-                //chart = new Highcharts[chartType](config.options);
-            };
-            initChart();
-
-            scope.$watch('config.series', function (newSeries, oldSeries) {
-                var needsRedraw = processSeries(newSeries);
-                //if(needsRedraw) chart.redraw();
-            }, true);
-
+        public templateUrl = function (element, attrs) {
+            return attrs.templateUrl;
+        };
+        
+        link = function (scope, element, attrs, ctrl) {
+            scope.chartOptions.chart.renderTo = 'batsmen';
+            scope.chartOptions.chart.type = scope.chartType;
+            var ngChart = new Highcharts.Chart(scope.chartOptions);
+            
+            element.find('.myNgTsdchart').bind("click", function() {
+                scope.ngChartLoad();
+            });
         };
 
         static factory(): ng.IDirectiveFactory {
