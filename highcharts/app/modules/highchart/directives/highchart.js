@@ -16,9 +16,6 @@ var app;
                     return attrs.templateUrl;
                 };
                 this.link = function (scope, element, attrs, ctrl) {
-                    scope.chartOptions.chart.renderTo = 'batsmen';
-                    scope.chartOptions.chart.type = scope.chartType;
-                    var ngChart = new Highcharts.Chart(scope.chartOptions);
                     element.find('.myNgTsdchart').bind("click", function () {
                         scope.ngChartLoad();
                     });
@@ -28,6 +25,9 @@ var app;
                 var directive = function () { return new highchart(); };
                 return directive;
             };
+            highchart.$inject = [
+                '$scope'
+            ];
             return highchart;
         })();
         highchart_1.highchart = highchart;

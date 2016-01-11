@@ -2,6 +2,10 @@ module app.highchart {
     'use strict';
     
     export class highchart implements ng.IDirective {
+
+        static $inject = [
+            '$scope'
+        ];
         
         public restrict = 'E';
         public replace = true;
@@ -16,10 +20,6 @@ module app.highchart {
         };
         
         link = function (scope, element, attrs, ctrl) {
-            scope.chartOptions.chart.renderTo = 'batsmen';
-            scope.chartOptions.chart.type = scope.chartType;
-            var ngChart = new Highcharts.Chart(scope.chartOptions);
-            
             element.find('.myNgTsdchart').bind("click", function() {
                 scope.ngChartLoad();
             });

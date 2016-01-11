@@ -8,8 +8,9 @@ var app;
                 this.httpService = httpService;
             }
             ChartDataService.prototype.getData = function () {
-                var result = this.httpService.get('data/data.json')
+                var result = this.httpService.get('http://localhost:8080/data/data.json')
                     .then(function (response) { return response.data; });
+                //console.log(result);
                 return result;
             };
             ChartDataService.$inject = [

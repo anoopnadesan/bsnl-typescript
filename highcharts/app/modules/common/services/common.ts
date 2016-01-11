@@ -16,8 +16,9 @@ module app.common
         ) {}
 
         getData(): ng.IPromise< any > {
-            var result: ng.IPromise< any > = this.httpService.get('data/data.json')
+            var result: ng.IPromise< any > = this.httpService.get('http://localhost:8080/data/data.json')
             .then( ( response: any ): ng.IPromise< any > => response.data );
+            //console.log(result);
             return result;
         }
     }
