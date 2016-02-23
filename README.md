@@ -1,5 +1,7 @@
 # Angularjs-TypeScript
 
+Use of Angular 1.5 with latest TypeScript version
+    
 * Client folder for login, events and directory listing modules
 * Lz folder for lazy loading
 * Server folder for events or directory data using socket.io
