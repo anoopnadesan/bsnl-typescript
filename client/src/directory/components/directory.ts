@@ -13,7 +13,7 @@
             $routeProvider.
                 when('/directories', {
                     controller: 'DirectoryController as vm',
-                    templateUrl: 'app/modules/directory/templates/directoryView.html'                    
+                    templateUrl: 'src/modules/directory/templates/directoryView.html'
                 });
     }
 })();

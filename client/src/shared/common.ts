@@ -3,8 +3,8 @@
     angular
         .module('app.common', [])
         .config(commonConfig)/*
-        .directive('app.common.CommonDirective',
-            app.common.CommonDirective.Factory()
+        .directive('src.shared.CommonDirective',
+            src.shared.CommonDirective.Factory()
             )*/;
 
     commonConfig.$inject = [

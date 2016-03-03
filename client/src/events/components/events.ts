@@ -13,7 +13,7 @@
             $routeProvider.
                 when('/events', {
                     controller: 'EventsController as vm',
-                    templateUrl: 'app/modules/events/templates/eventsView.html'
+                    templateUrl: 'src/modules/events/templates/eventsView.html'
                 });
     }
 })();

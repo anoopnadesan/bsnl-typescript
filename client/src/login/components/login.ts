@@ -13,7 +13,7 @@
             $routeProvider.
                 when('/login', {
                     controller: 'LoginController as vm',
-                    templateUrl: 'app/modules/login/templates/loginView.html'
+                    templateUrl: 'src/modules/login/templates/loginView.html'
                 });
     }
 })();
