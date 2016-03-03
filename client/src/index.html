@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <base href="/">
     <title>Angular 1.5 Application with TypeScript</title>
-    <link rel="stylesheet" href="vendor/bower_components/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="vendor/bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="assets/app.css">
+    <link rel="stylesheet" href="../vendor/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../vendor/bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="../assets/app.css">
 </head>
 <body ng-app="app" ng-cloak>
 
@@ -48,26 +48,26 @@
 </div>
 
 <script src="http://localhost:3001/socket.io/socket.io.js"></script>
-<script src="vendor/bower_components/jquery/dist/jquery.min.js"></script>
-<script src="vendor/bower_components/jquery-ui/jquery-ui.min.js"></script>
-<script src="vendor/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-<script src="vendor/bower_components/angular/angular.min.js"></script>
-<script src="vendor/bower_components/angular-route/angular-route.min.js"></script>
-<script src="vendor/bower_components/angular-cookies/angular-cookies.min.js"></script>
+<script src="../vendor/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="../vendor/bower_components/jquery-ui/jquery-ui.min.js"></script>
+<script src="../vendor/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../vendor/bower_components/angular/angular.min.js"></script>
+<script src="../vendor/bower_components/angular-route/angular-route.min.js"></script>
+<script src="../vendor/bower_components/angular-cookies/angular-cookies.min.js"></script>
 
-<script src="app/modules/app.js"></script>
+<script src="src/app.js"></script>
 
-<script src="app/modules/login/login.js"></script>
-<script src="app/modules/login/controllers/loginController.js"></script>
-<script src="app/modules/login/services/loginService.js"></script>
+<script src="src/login/login.js"></script>
+<script src="src/login/components/loginController.js"></script>
+<script src="src/login/services/loginService.js"></script>
 
-<script src="app/modules/events/events.js"></script>
-<script src="app/modules/events/controllers/eventsController.js"></script>
+<script src="src/events/events.js"></script>
+<script src="src/events/controllers/eventsController.js"></script>
 
-<script src="app/modules/directory/directory.js"></script>
-<script src="app/modules/directory/controllers/directoryController.js"></script>
+<script src="src/directory/directory.js"></script>
+<script src="src/directory/controllers/directoryController.js"></script>
 
-<script src="app/modules/common/common.js"></script>
-<script src="app/modules/common/services/socket.ioService.js"></script>
+<script src="src/shared/common.js"></script>
+<script src="src/shared/services/socket.ioService.js"></script>
 </body>
 </html>
