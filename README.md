@@ -1,6 +1,6 @@
-# Angularjs-TypeScript
+# Angular-TypeScript
 
-Use of Angular 1.5 with latest TypeScript version
+Use of Angular 2.0 with latest TypeScript version
 
 * Client folder for login, events and directory listing modules
 * Lz folder for lazy loading
