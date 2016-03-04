@@ -5,20 +5,5 @@
   "path": "typings",
   "bundle": "typings/tsd.d.ts",
   "installed": {
-    "jquery/jquery.d.ts": {
-      "commit": "24e12a7af994afa2226af70fbfae0adc78736a9e"
-    },
-    "angularjs/angular.d.ts": {
-      "commit": "24e12a7af994afa2226af70fbfae0adc78736a9e"
-    },
-    "angularjs/angular-resource.d.ts": {
-      "commit": "24e12a7af994afa2226af70fbfae0adc78736a9e"
-    },
-    "angularjs/angular-route.d.ts": {
-      "commit": "24e12a7af994afa2226af70fbfae0adc78736a9e"
-    },
-    "angularjs/angular-cookies.d.ts": {
-      "commit": "24e12a7af994afa2226af70fbfae0adc78736a9e"
-    }
   }
 }

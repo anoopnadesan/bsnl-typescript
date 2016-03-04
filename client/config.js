@@ -4,11 +4,8 @@ module.exports = {
     livereload_port: 35729,
     app_files: {
         css: [ 'src/styles/**/*.css' ],
-        js: [ 'src/**/*.js', '!src/**/*.spec.js', '!src/assets/**/*.js' ],
-        jsunit: [ 'src/**/*.spec.js' ],
-        atpl: [ 'src/app/**/*.tpl.html' ],
-        ctpl: [ 'src/common/**/*.tpl.html' ],
-        html: [ 'src/index.html' ]
+        html: [ 'src/**/*.html' ],
+        ihtml: ['src/index.html']
     },
     test_files: {
         js: [
@@ -16,17 +13,17 @@ module.exports = {
     },
     vendor_files: {
         js: [
-            'vendor/bower_components/jquery/dist/jquery.min.js',
-            'vendor/bower_components/angular/angular.js',
-            'vendor/bower_components/angular-resource/angular-resource.min.js',
-            'vendor/bower_components/angular-ui-router/release/angular-ui-router.min.js',
-            'vendor/bower_components/ui-router-extras/release/ct-ui-router-extras.min.js',
-            'vendor/bower_components/slick-carousel/slick/slick.js'
+            "node_modules/es6-shim/es6-shim.min.js",
+            "node_modules/systemjs/dist/system-polyfills.js",
+            "node_modules/angular2/es6/dev/src/testing/shims_for_IE.js",
+            "node_modules/angular2/bundles/angular2-polyfills.js",
+            "node_modules/systemjs/dist/system.src.js",
+            "node_modules/rxjs/bundles/Rx.js",
+            "node_modules/angular2/bundles/angular2.dev.js"
         ],
         css: [
-            'vendor/bower_components/bootstrap/dist/css/bootstrap.min.css',
-            'vendor/bower_components/slick-carousel/slick/slick.css',
-            'vendor/bower_components/slick-carousel/slick/slick-theme.css'
+            "node_modules/bootstrap/dist/css/bootstrap.min.css",
+            "node_modules/bootstrap/dist/css/bootstrap-theme.min.css"
         ],
         assets: [
         ]

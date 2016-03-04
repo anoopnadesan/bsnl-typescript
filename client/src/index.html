@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <base href="/">
-    <title>Angular 1.5 Application with TypeScript</title>
-    <link rel="stylesheet" href="../vendor/bower_components/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../vendor/bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="../assets/app.css">
+    <title>Angular 2.0 Application with TypeScript</title>
+    <link rel="stylesheet" href="dist/vendor/css/bootstrap.min.css">
+    <link rel="stylesheet" href="dist/vendor/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="assets/css/app.css">
 </head>
 <body ng-app="app" ng-cloak>
 
@@ -48,26 +48,29 @@
 </div>
 
 <script src="http://localhost:3001/socket.io/socket.io.js"></script>
-<script src="../vendor/bower_components/jquery/dist/jquery.min.js"></script>
-<script src="../vendor/bower_components/jquery-ui/jquery-ui.min.js"></script>
-<script src="../vendor/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-<script src="../vendor/bower_components/angular/angular.min.js"></script>
-<script src="../vendor/bower_components/angular-route/angular-route.min.js"></script>
-<script src="../vendor/bower_components/angular-cookies/angular-cookies.min.js"></script>
 
-<script src="src/app.js"></script>
+<!-- IE required polyfills, in this exact order -->
+<script src="dist/vendor/js/es6-shim.min.js"></script>
+<script src="dist/vendor/js/system-polyfills.js"></script>
+<script src="dist/vendor/js/shims_for_IE.js"></script>
 
-<script src="src/login/login.js"></script>
-<script src="src/login/components/loginController.js"></script>
-<script src="src/login/services/loginService.js"></script>
+<script src="dist/vendor/js/angular2-polyfills.js"></script>
+<script src="dist/vendor/js/system.src.js"></script>
+<script src="dist/vendor/js/Rx.js"></script>
+<script src="dist/vendor/js/angular2.dev.js"></script>
 
-<script src="src/events/events.js"></script>
-<script src="src/events/controllers/eventsController.js"></script>
 
-<script src="src/directory/directory.js"></script>
-<script src="src/directory/controllers/directoryController.js"></script>
+<script src="dist/js/main.js"></script>
+<script src="dist/js/login.js"></script>
+<script src="dist/js/loginController.js"></script>
+<script src="dist/js/loginService.js"></script>
+<script src="dist/js/events.js"></script>
+<script src="dist/js/eventsController.js"></script>
+<script src="dist/js/directory.js"></script>
+<script src="dist/js/directoryController.js"></script>
+<script src="dist/js/common.js"></script>
+<script src="dist/js/socket.ioService.js"></script>
 
-<script src="src/shared/common.js"></script>
-<script src="src/shared/services/socket.ioService.js"></script>
+<script src="dist/js/systemConfig.js"></script>
 </body>
 </html>

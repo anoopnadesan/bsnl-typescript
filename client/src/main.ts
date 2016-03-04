@@ -1,16 +1,16 @@
 ((): void => {
     'strict';
     
-    angular
+    /*angular
         .module('app', [
-            /*
+            /!*
             * Angular Modules
-            */
+            *!/
             'ngRoute',
             'ngCookies',
-            /*
+            /!*
              * Site modules
-             */
+             *!/
             'app.login',
             'app.common',
             'app.events',
@@ -34,5 +34,5 @@
     function run(LoginService: app.login.LoginService): void {            
         // keep user logged in after page refresh
         LoginService.authenticate();
-    }
+    }*/
 })();

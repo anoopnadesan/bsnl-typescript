@@ -1,5 +1,7 @@
 .idea
-client/vendor/**
 client/.vscode
 src/**/.*js
+client/node_modules
 server/node_modules
+typings/**
+dist/**
